@@ -1,0 +1,3 @@
+aws s3api ut-object-tagging --bucket izaan-saif2022 --key test.txt --tagging '{"TagSet": [{ "Key": "Owner", "Value": "saif" }]}'
+
+aws s3api ut-bucket-tagging --bucket izaan-saif2022 --key test.txt --tagging '{"TagSet": [{ "Key": "Owner", "Value": "saif" }]}'

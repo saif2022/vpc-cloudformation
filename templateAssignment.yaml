@@ -1,0 +1,30 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: izzan-saif2022-assignment-cloudformation-01
+  S3BucketPolicyfor:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: izzan-saif2022-assignment-cloudformation-01
+      PolicyDocument:
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource:
+              - arn:aws:s3:::izzan-saif2022-assignment-cloudformation-01/*
+            Principal: '*'
+          - Action:
+              - 's3:GetObject'
+            Effect: Deny
+            Resource:
+              - arn:aws:s3:::izzan-saif2022-assignment-cloudformation-01/private.txt
+            Principal: '*'
+          - Action:
+              - 's3:*'
+            Effect: Allow
+            Resource:
+              - arn:aws:s3:::izzan-saif2022-assignment-cloudformation-01/private.txt
+            Principal:
+              AWS: arn:aws:iam::716563221006:user/saif_admin
